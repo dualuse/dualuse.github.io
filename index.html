@@ -1,0 +1,56 @@
+
+<html>
+<head>
+<title>dualuse</title>
+<meta name="viewport" content="width=800" />
+<link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css' />
+<link href="warp.css" rel="stylesheet" type="text/css" />
+<style>
+.impress {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}
+</style>
+</head>
+<body>
+
+
+
+<div id="world" class="view">
+  <div class="space main" id="space">
+  </div>
+</div>
+<a href="http://covicon.de" class="impress">dualuse</a>
+
+</body>
+
+
+<script>
+	var SIZE = Math.min(window.innerWidth, window.innerHeight)*1.2; 
+	for (var i=0,I=300;i<I;i++) {
+		var star = document.createElement("div");
+		
+		var X = (-SIZE/2+Math.random()*SIZE);
+		var Y = (-SIZE/2+Math.random()*SIZE);
+		var Z = (-SIZE/2+Math.random()*SIZE);
+		var T = 5;
+						
+		star.style.webkitTransform = star.style.transform = "translate3d("+X+"px,"+Y+"px,"+Z+"px)";
+		star.className += "star";
+		
+		
+		var halo = document.createElement("div");
+		
+		halo.style.webkitAnimation = halo.style.animation = "translate "+T+"s infinite linear";
+		halo.style.webkitAnimationDelay = halo.style.animationDelay = "-"+  (T*(0.5+((Y+SIZE/2)/SIZE)))+"s";
+		halo.className += "halo";
+		
+				
+		star.appendChild(halo);
+		space.appendChild(star);
+	}
+	
+</script>
+</html>
+
